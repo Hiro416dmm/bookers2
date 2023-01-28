@@ -1,8 +1,5 @@
 class BooksController < ApplicationController
-def new
-  @book = Book.new
 
-end
 # 投稿データの保存
   def create
     @book = Book.new(book_params)
@@ -10,8 +7,9 @@ end
     @book.save
     redirect_to books_path
   end
-  
+
   def index
+    @book = Book.new
     @books = Book.all
   end
 
